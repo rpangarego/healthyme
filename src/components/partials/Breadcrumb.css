@@ -1,0 +1,29 @@
+.breadcrumb {
+  width: fit-content;
+  margin-bottom: 1rem;
+}
+.breadcrumb a {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+
+  text-decoration: none;
+}
+
+.breadcrumb h5 {
+  display: inline-block;
+  color: var(--clr-font-sec);
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.breadcrumb .MuiSvgIcon-root {
+  font-size: 1.2rem !important;
+  color: var(--clr-font-sec);
+}
+
+@media screen and (max-width: 420px) {
+  .breadcrumb {
+    margin-left: 1rem;
+  }
+}

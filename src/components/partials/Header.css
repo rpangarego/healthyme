@@ -1,0 +1,35 @@
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  padding: 10px;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+header a {
+  text-decoration: none;
+  color: initial;
+}
+
+header a:first-child {
+  flex: 2;
+  text-align: center;
+  color: var(--clr-lightgreen) !important;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.logo span {
+  color: var(--clr-lightblue);
+}
+
+@media screen and (max-width: 420px) {
+  h3.logo {
+    text-align: left;
+    margin-left: 1rem;
+  }
+}
