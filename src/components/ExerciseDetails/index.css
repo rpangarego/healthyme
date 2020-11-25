@@ -1,0 +1,47 @@
+.exercise-info h1 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.info-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.info-details .more-details:nth-child(1) {
+  border-right: 1px solid black;
+}
+
+.more-details {
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.more-details h5 {
+  font-size: 1.5rem;
+}
+
+a.start-exercise {
+  width: fit-content;
+  display: flex;
+  margin: 0 auto;
+  padding: 8px 25px;
+  align-items: center;
+  /* background-color: var(--clr-white); */
+  /* border: 1px solid var(--clr-gray-draker); */
+  border-radius: 50px;
+  outline: none;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: padding 200ms ease-in-out;
+}
+
+a.start-exercise:hover {
+  padding: 8px 18px;
+}
+
+a.start-exercise .MuiSvgIcon-root {
+  margin-right: 6px;
+}
