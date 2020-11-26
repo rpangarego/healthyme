@@ -28,6 +28,10 @@ header a:first-child {
 }
 
 @media screen and (max-width: 420px) {
+  header {
+    margin-bottom: 1rem;
+  }
+
   h3.logo {
     text-align: left;
     margin-left: 1rem;

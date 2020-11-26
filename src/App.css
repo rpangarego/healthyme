@@ -8,6 +8,25 @@
   padding: 1rem;
 }
 
+/* custom style */
+.exercise-button {
+  width: fit-content;
+  display: flex;
+  padding: 8px 27px;
+  align-items: center;
+  background-color: var(--clr-white);
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: padding 200ms ease-in-out;
+}
+
+.exercise-button:hover {
+  padding: 8px 20px;
+}
+
 @media screen and (max-width: 420px) {
   .app {
     width: 100%;

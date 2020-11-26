@@ -1,0 +1,150 @@
+.exercise-start {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto;
+  padding: 40px 20px;
+  width: 80%;
+  max-width: 1000px;
+  max-height: 600px;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+}
+
+.exercise-playing-info h1.title {
+  display: block;
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  padding-bottom: 10px;
+  color: var(--clr-gray-draker);
+  border-bottom: 1px solid #a6a6a6;
+}
+
+.exercise-playing-info h2.exercise-subtitle {
+  font-size: 2.3rem;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.exercise-playing-info p {
+  font-size: 1.4rem;
+  text-align: center;
+  color: var(--clr-gray);
+  margin-bottom: 10px;
+}
+
+.exercise-playing-info h3.exercise-timer {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.exercise-playing-animate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.exercise-image {
+  align-self: center;
+  padding: 10px;
+  margin-bottom: 2rem;
+  min-width: 250px;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  object-fit: cover;
+}
+
+.timer-bar {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 15px;
+  border: 1px solid var(--clr-gray);
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+}
+
+span.exercise-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* width: 0; */
+  height: 100%;
+  background-color: gray;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+button.exercise-button {
+  font-size: 0.925rem;
+  font-weight: 600;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 800px) {
+  .exercise-start {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    padding: 20px 30px;
+    margin-top: 2rem;
+    max-height: none;
+  }
+
+  .exercise-playing-info {
+    margin-bottom: 1rem;
+  }
+
+  .exercise-playing-info h1.title {
+    font-size: 1.5rem;
+  }
+
+  .exercise-playing-info h2.exercise-subtitle {
+    font-size: 1.8rem;
+  }
+
+  .exercise-playing-info p {
+    font-size: 1.3rem;
+  }
+
+  .exercise-playing-info h3.exercise-timer {
+    font-size: 1.5rem;
+  }
+
+  button.exercise-button {
+    font-size: 0.925rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .exercise-start {
+    width: 90%;
+    margin-top: 2rem;
+    padding: 20px;
+  }
+
+  .exercise-playing-info h1.title {
+    font-size: 1.2rem;
+    margin-top: 10px;
+  }
+
+  .exercise-playing-info h2.exercise-subtitle {
+    font-size: 1.5rem;
+  }
+
+  .exercise-playing-info p {
+    font-size: 1rem;
+  }
+
+  .exercise-playing-info h3.exercise-timer {
+    font-size: 1.3rem;
+  }
+}

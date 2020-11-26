@@ -23,10 +23,7 @@ const ExerciseDetails = () => {
             </div>
           </div>
 
-          <Link
-            to="/exercises/123456/start-exercise"
-            className="start-exercise"
-          >
+          <Link to="/exercises/123456/start" className="exercise-button">
             <PlayCircleOutlineIcon />
             Start Exercise
           </Link>

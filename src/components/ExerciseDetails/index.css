@@ -5,7 +5,7 @@
   justify-content: center;
   width: 80%;
   max-width: 1000px;
-  max-height: 500px;
+  max-height: 600px;
   margin: 0 auto;
   border-radius: 10px;
   overflow: hidden;
@@ -37,7 +37,7 @@
 .exercise-content {
   height: 90%;
   padding: 10px 15px;
-  max-height: 450px;
+  max-height: 480px;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
@@ -71,7 +71,7 @@
   font-size: 1.5rem;
 }
 
-a.start-exercise {
+/* a.start-exercise {
   width: fit-content;
   display: flex;
   padding: 8px 27px;
@@ -86,7 +86,7 @@ a.start-exercise {
 
 a.start-exercise:hover {
   padding: 8px 20px;
-}
+} */
 
 a.start-exercise .MuiSvgIcon-root {
   margin-right: 6px;
