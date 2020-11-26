@@ -1,0 +1,68 @@
+.exercise-completed {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding: 40px 20px;
+  width: 80%;
+  max-width: 1000px;
+  max-height: 600px;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+}
+
+.exercise-completed h1 {
+  font-size: 2.3rem;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.exercise-completed img {
+  width: 80%;
+  max-width: 230px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+.nav-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nav-buttons .exercise-button {
+  padding: 10px;
+  margin: 8px auto;
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  text-align: center;
+  transition: max-width 200ms ease-in-out;
+}
+
+.nav-buttons .exercise-button:hover,
+.nav-buttons .exercise-button:active {
+  max-width: 230px;
+}
+
+@media screen and (max-width: 800px) {
+  .exercise-completed h1 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .exercise-completed {
+    width: 90%;
+  }
+
+  .exercise-completed h1 {
+    font-size: 1.4rem;
+    margin: auto;
+  }
+}

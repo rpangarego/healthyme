@@ -1,20 +1,23 @@
 import React, { useState } from "react";
 import "./index.css";
+import { useHistory } from "react-router-dom";
 import Breadcrumb from "../partials/Breadcrumb";
 
 const ExerciseStart = ({ location }) => {
+  const history = useHistory();
   let [progress, setProgress] = useState(0);
 
-  let backToURI = location.pathname.split("/");
+  let exerciseURI = location.pathname.split("/");
+  exerciseURI = `/${exerciseURI[1]}/${exerciseURI[2]}`;
 
   const handleProgress = () => {
-    if (progress >= 100) return false;
-    setProgress(progress + 10);
+    if (progress >= 100) history.push(exerciseURI + "/completed");
+    setProgress(progress + 50);
   };
 
   return (
     <>
-      <Breadcrumb backTo={`/${backToURI[1]}/${backToURI[2]}`} />
+      <Breadcrumb backTo={exerciseURI} />
       <div className="exercise-start">
         <div className="exercise-playing-info">
           <h1 className="title">Abs & Obliques</h1>
