@@ -6,10 +6,11 @@ const BMICalculator = () => {
   const [height, setHeight] = useState(null);
   const [weight, setWeight] = useState(null);
   const [BMI, setBMI] = useState(0);
-  const [weightStatus, setWeightStatus] = useState("");
+  const [weightStatus, setWeightStatus] = useState(null);
 
-  const calculateBMI = () => {
-    setBMI((weight / ((height / 100) * 2)).toFixed(2));
+  const calculateBMI = (e) => {
+    e.preventDefault();
+    setBMI((weight / ((height / 100) ^ 2)).toFixed(2));
 
     if (BMI < 18.5) {
       setWeightStatus("Underweight");
@@ -32,37 +33,38 @@ const BMICalculator = () => {
       <div className="bmi-calculator">
         <h1>BMI Calculator</h1>
 
-        <div className="calculator-input">
-          <input
-            type="text"
-            className="form-input"
-            placeholder="Height (cm)"
-            min="0"
-            max="250"
-            value={height}
-            required
-            onChange={(e) => setHeight(e.target.value)}
-          />
-          <input
-            type="text"
-            className="form-input"
-            placeholder="Weight (kg)"
-            min="1"
-            max="500"
-            value={weight}
-            required
-            onChange={(e) => setWeight(e.target.value)}
-          />
+        <form>
+          <div className="calculator-input">
+            <input
+              type="text"
+              className="form-input"
+              placeholder="Height (cm)"
+              min="0"
+              max="250"
+              value={height}
+              required
+              onChange={(e) => setHeight(e.target.value)}
+            />
+            <input
+              type="text"
+              className="form-input"
+              placeholder="Weight (kg)"
+              min="1"
+              max="500"
+              value={weight}
+              required
+              onChange={(e) => setWeight(e.target.value)}
+            />
 
-          <button
-            type="submit"
-            className="exercise-button"
-            onClick={calculateBMI}
-          >
-            Calculate
-          </button>
-        </div>
-
+            <button
+              type="submit"
+              className="exercise-button"
+              onClick={calculateBMI}
+            >
+              Calculate
+            </button>
+          </div>
+        </form>
         <div className="calculator-results">
           {weightStatus ? (
             <>

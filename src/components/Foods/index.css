@@ -1,0 +1,86 @@
+.foods {
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding: 40px 20px;
+  width: 80%;
+  max-width: 1000px;
+
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+}
+
+.foods > h1 {
+  font-size: 2.3rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.search > form {
+  position: relative;
+  /* border: var(--debug-red); */
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+form > input.search-input {
+  width: 100%;
+  padding: 6px 60px 6px 20px;
+  margin: 0 auto;
+  font-size: 1rem;
+  border: 1px solid var(--clr-gray);
+  border-radius: 20px;
+}
+
+button.search-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 6px;
+  color: var(--clr-white);
+  background-color: var(--clr-gray);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  cursor: pointer;
+}
+
+.foods > .content-wrapper {
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-template-rows: auto;
+  grid-gap: 2rem;
+}
+
+@media screen and (max-width: 900px) {
+  .foods {
+    width: 90%;
+  }
+
+  .foods > .content-wrapper {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .foods {
+    width: 90%;
+  }
+
+  .foods > h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  form > input.search-input {
+    font-size: 14px;
+  }
+
+  .foods > .content-wrapper {
+    grid-template-columns: 1fr;
+  }
+} ;

@@ -6,6 +6,7 @@ import ExerciseDetails from "./components/ExerciseDetails";
 import ExerciseStart from "./components/ExerciseStart";
 import ExerciseCompleted from "./components/ExerciseCompleted";
 import Foods from "./components/Foods";
+import FoodDetails from "./components/FoodDetails";
 import BMICalculator from "./components/BMICalculator";
 import PageNotFound from "./components/PageNotFound";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -32,6 +33,7 @@ function App() {
               component={ExerciseCompleted}
             />
             <Route exact path="/foods" component={Foods} />
+            <Route exact path="/foods/:id/recipe" component={FoodDetails} />
             <Route exact path="/bmi-calculator" component={BMICalculator} />
 
             <Route component={PageNotFound} />
