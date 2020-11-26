@@ -9,7 +9,7 @@ const ExerciseDetailContent = ({
 }) => {
   return (
     <div className="content-item">
-      <img src={imageURL} alt={imageURL} />
+      <img src={imageURL} alt={imageURL} className="content-image" />
       <div className="content-detail">
         <h3>{exerciseName}</h3>
         <p>{exerciseDuration}</p>

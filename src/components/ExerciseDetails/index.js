@@ -7,49 +7,83 @@ import ExerciseDetailContent from "../partials/ExerciseDetailContent";
 
 const ExerciseDetails = () => {
   return (
-    <div className="exercise-details">
+    <>
       <Breadcrumb goBackText="Exercises" backTo="/exercises" />
+      <div className="exercise-details">
+        <div className="exercise-info">
+          <h1>Abs & Obliques</h1>
+          <div className="info-details">
+            <div className="more-details">
+              <h5>15</h5>
+              <p>Minutes</p>
+            </div>
+            <div className="more-details">
+              <h5>8</h5>
+              <p>Exercises</p>
+            </div>
+          </div>
 
-      <div className="exercise-info">
-        <h1>Abs & Obliques</h1>
-        <div className="info-details">
-          <div className="more-details">
-            <h5>15</h5>
-            <p>Minutes</p>
-          </div>
-          <div className="more-details">
-            <h5>8</h5>
-            <p>Exercises</p>
-          </div>
+          <Link
+            to="/exercises/123456/start-exercise"
+            className="start-exercise"
+          >
+            <PlayCircleOutlineIcon />
+            Start Exercise
+          </Link>
         </div>
-
-        <Link to="/exercises/123456/start-exercise" className="start-exercise">
-          <PlayCircleOutlineIcon />
-          Start Exercise
-        </Link>
 
         <div className="exercise-content">
           <ExerciseDetailContent
-            imageURL="/images/homer-simpson.png"
+            imageURL="/bicycle-crunches.jpg"
             imageALT="its a pic"
             exerciseName="AB Stretch"
             exerciseDuration="20sec"
           />
           <ExerciseDetailContent
-            imageURL="/images/homer-simpson.png"
+            imageURL="/bicycle-crunches.jpg"
             imageALT="its a pic"
             exerciseName="Jumping Jacks"
             exerciseDuration="20sec"
           />
           <ExerciseDetailContent
-            imageURL="/images/homer-simpson.png"
+            imageURL="/bicycle-crunches.jpg"
             imageALT="its a pic"
-            exerciseName="Spiderman Push-ups"
+            exerciseName="AB Stretch"
+            exerciseDuration="20sec"
+          />
+          <ExerciseDetailContent
+            imageURL="/bicycle-crunches.jpg"
+            imageALT="its a pic"
+            exerciseName="Jumping Jacks"
+            exerciseDuration="20sec"
+          />
+          <ExerciseDetailContent
+            imageURL="/bicycle-crunches.jpg"
+            imageALT="its a pic"
+            exerciseName="AB Stretch"
+            exerciseDuration="20sec"
+          />
+          <ExerciseDetailContent
+            imageURL="/bicycle-crunches.jpg"
+            imageALT="its a pic"
+            exerciseName="Jumping Jacks"
+            exerciseDuration="20sec"
+          />
+          <ExerciseDetailContent
+            imageURL="/homer-simpson.png"
+            imageALT="its a pic"
+            exerciseName="Spiderman Push-ups With Legs Move Up and Down"
+            exerciseDuration="20sec"
+          />
+          <ExerciseDetailContent
+            imageURL="/homer-simpson.png"
+            imageALT="its a pic"
+            exerciseName="Spiderman Push-ups With Legs Move Up and Down"
             exerciseDuration="20sec"
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

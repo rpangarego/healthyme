@@ -4,8 +4,13 @@
   --clr-font: #212529;
   --clr-font-sec: #403d40;
   --clr-white: #fff;
+  --clr-light: #f4f4f4a9;
   --clr-gray: #a6a6a6;
   --clr-gray-draker: #5e5e5e;
+  --shadow-sm: 0 3px 13px rgba(0, 0, 0, 0.2);
+  --shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  --debug-red: 2px solid red;
+  --debug-orange: 2px solid orange;
 }
 
 *,

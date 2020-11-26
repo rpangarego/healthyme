@@ -1,47 +1,146 @@
+.exercise-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  max-width: 1000px;
+  max-height: 500px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+}
+
+.exercise-info {
+  position: relative;
+  padding-left: 2rem;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* .exercise-info::before {
+  content: "";
+  padding-left: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: -10;
+} */
+
+.exercise-content {
+  height: 90%;
+  padding: 10px 15px;
+  max-height: 450px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
 .exercise-info h1 {
-  text-align: center;
+  font-size: 2.3rem;
+  max-width: 80%;
   margin-bottom: 15px;
 }
 
 .info-details {
   display: flex;
-  justify-content: center;
   align-items: center;
   margin-bottom: 15px;
 }
 
 .info-details .more-details:nth-child(1) {
-  border-right: 1px solid black;
+  padding-left: 0;
+  border-right: 1px solid var(--clr-gray-draker);
 }
 
 .more-details {
+  display: flex;
+  align-items: center;
+  color: var(--clr-font-sec);
   padding: 10px 20px;
-  text-align: center;
 }
 
 .more-details h5 {
+  margin-right: 6px;
   font-size: 1.5rem;
 }
 
 a.start-exercise {
   width: fit-content;
   display: flex;
-  margin: 0 auto;
-  padding: 8px 25px;
+  padding: 8px 27px;
   align-items: center;
-  /* background-color: var(--clr-white); */
-  /* border: 1px solid var(--clr-gray-draker); */
+  background-color: var(--clr-white);
   border-radius: 50px;
   outline: none;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-sm);
   cursor: pointer;
   transition: padding 200ms ease-in-out;
 }
 
 a.start-exercise:hover {
-  padding: 8px 18px;
+  padding: 8px 20px;
 }
 
 a.start-exercise .MuiSvgIcon-root {
   margin-right: 6px;
+}
+
+@media screen and (max-width: 800px) {
+  .exercise-details {
+    position: relative;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    max-height: 100%;
+    padding: 0 10px;
+    margin-top: 2rem;
+    box-shadow: none;
+  }
+
+  .exercise-info {
+    padding-left: 0;
+    margin-bottom: 4rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .exercise-info h1 {
+    text-align: center;
+  }
+
+  .more-details {
+    text-align: center;
+    padding: 8px 15px;
+  }
+
+  .more-details h5 {
+    margin-right: 6px;
+    font-size: 1.5rem;
+  }
+
+  .exercise-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* padding: 20px 10px 20px;
+     */
+    padding: 20px 30px;
+    max-height: none;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    align-items: center;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .exercise-details {
+    width: 100%;
+  }
 }
