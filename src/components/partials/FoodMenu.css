@@ -22,7 +22,7 @@
 
 .food-info h1.food-title {
   font-size: 1.3rem;
-  min-height: 70px;
+  /* min-height: 40px; */
   margin-bottom: 15px;
   overflow: hidden;
   max-width: 30ch;

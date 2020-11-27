@@ -1,29 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./index.css";
 import Breadcrumb from "../partials/Breadcrumb";
-import SearchIcon from "@material-ui/icons/Search";
+// import SearchIcon from "@material-ui/icons/Search";
 import FoodMenu from "../partials/FoodMenu";
-import axios from "axios";
 import { CircularProgress } from "@material-ui/core";
+import { useDataLayerValue } from "../../DataLayer";
 
 const Foods = () => {
-  const [foods, setFoods] = useState([]);
-  let [isLoading, setIsLoading] = useState(true);
+  const [{ foods }] = useDataLayerValue();
+  // const [searchInput, setSearchInput] = useState("");
+  // eslint-disable-next-line no-unused-vars
+  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:9000/api/v1/foods")
-      .then((response) => {
-        setFoods([response.data.foods]);
-        setIsLoading(false);
-      })
-      .then(() => console.log(foods));
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // const showMoreFoods = () => {
-  //   console.log("Hello!!!");
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  //   console.log("Search query: ", searchInput);
   // };
 
   return (
@@ -31,18 +22,20 @@ const Foods = () => {
       <Breadcrumb goBackText="Home" />
       <div className="foods">
         <h1>Healthy Foods</h1>
-        <div className="search">
-          <form>
+        {/* <div className="search">
+          <form onSubmit={handleSearch}>
             <input
               type="text"
               placeholder="Type something here..."
+              value={searchInput}
               className="search-input"
+              onChange={(e) => setSearchInput(e.target.value)}
             />
             <button type="submit" className="search-btn">
               <SearchIcon />
             </button>
           </form>
-        </div>
+        </div> */}
 
         {/* food contents */}
         {
@@ -67,11 +60,6 @@ const Foods = () => {
             </div>
           )
         }
-
-        {/* !isLoading && (
-             <button className="show-more-foods" onClick={showMoreFoods}>
-             Show more foods
-           </button>) */}
       </div>
     </>
   );

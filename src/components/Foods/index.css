@@ -12,8 +12,7 @@
 .foods > .loading-foods {
   display: block;
   text-align: center;
-  margin: 0 auto;
-  margin-top: 5rem;
+  margin: 5rem auto;
 }
 
 .foods > .show-more-foods {
@@ -74,7 +73,7 @@ button.search-btn {
 }
 
 .foods > .content-wrapper {
-  margin-top: 5rem;
+  margin-top: 4rem;
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
   grid-template-rows: auto;

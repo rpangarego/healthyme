@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import "./App.css";
 import Header from "./components/partials/Header";
 import Home from "./components/Home";
@@ -11,8 +12,27 @@ import BMICalculator from "./components/BMICalculator";
 import About from "./components/About";
 import PageNotFound from "./components/PageNotFound";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { useDataLayerValue } from "./DataLayer";
+import Axios from "axios";
 
 function App() {
+  // eslint-disable-next-line no-unused-vars
+  const [{ foods }, dispatch] = useDataLayerValue();
+
+  useEffect(() => {
+    Axios.get("https://healthyme-backend.herokuapp.com/api/v1/foods").then(
+      (response) => {
+        // setFoodsData([response.data.foods]);
+        dispatch({
+          type: "SET_FOODS",
+          foods: [response.data.foods],
+        });
+      }
+    );
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="app">
       <Router>

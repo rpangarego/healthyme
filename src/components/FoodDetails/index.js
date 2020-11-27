@@ -9,12 +9,13 @@ import { CircularProgress } from "@material-ui/core";
 const FoodDetails = ({ location }) => {
   const [foodDetails, setFoodDetails] = useState(null);
   const foodID = location.pathname.split("/")[2];
-  const foodDetailsURI = `http://localhost:9000/api/v1/foods/${foodID}/recipe`;
+  const foodDetailsURI = `https://healthyme-backend.herokuapp.com/api/v1/foods/${foodID}/recipe`;
 
   useEffect(() => {
-    Axios.get(foodDetailsURI)
-      .then((response) => setFoodDetails({ data: response.data }))
-      .then(console.log(foodDetails));
+    Axios.get(foodDetailsURI).then((response) =>
+      setFoodDetails({ data: response.data })
+    );
+    // .then(console.log(foodDetails));
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
