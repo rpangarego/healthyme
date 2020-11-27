@@ -1,0 +1,98 @@
+.food-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  gap: 1rem;
+
+  margin: 0 auto;
+  margin-top: 2rem;
+  width: 80%;
+  max-width: 1000px;
+  max-height: 65vh;
+
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.food-details > img.food-image {
+  width: 50%;
+  max-width: 400px;
+  min-height: 100%;
+  object-fit: cover;
+}
+
+.food-details > .food-info {
+  padding: 20px 25px;
+  overflow-y: auto;
+}
+
+.food-details > .food-info > h1.food-name {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.food-info > .food-prep {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.food-prep > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.food-prep > div > .MuiSvgIcon-root {
+  margin-right: 5px;
+}
+
+.food-details-description {
+  text-align: justify;
+  color: var(--clr-font-sec);
+  margin-bottom: 1.5rem;
+}
+
+.food-info > div > ul li {
+  list-style-type: "-  ";
+  margin: 6px 0 6px 1rem;
+  font-size: 1.05rem;
+  text-align: justify;
+}
+
+.food-info > div > ul.steps li {
+  margin: 6px 0 12px 1rem;
+}
+
+.food-info > div:last-of-type {
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 900px) {
+  .food-details > img.food-image {
+    width: 50%;
+    max-width: 300px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .food-details {
+    flex-direction: column;
+    max-height: 80vh;
+    gap: 0;
+  }
+
+  .food-details > img.food-image {
+    width: 100%;
+    min-width: 100%;
+    height: 800px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .food-details {
+    width: 90%;
+    margin-bottom: 1rem;
+  }
+}

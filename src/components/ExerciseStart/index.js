@@ -29,7 +29,7 @@ const ExerciseStart = ({ location }) => {
 
         <div className="exercise-playing-animate">
           <img
-            src="http://localhost:3000/burpees-exercise.gif"
+            src="/burpees-exercise.gif"
             alt="some alt"
             className="exercise-image"
           />

@@ -26,7 +26,7 @@ const Foods = () => {
         {/* food contents */}
         <div className="content-wrapper">
           <FoodMenu
-            imageURL="http://localhost:3000/homer-simpson.png"
+            imageURL="/homer-simpson.png"
             foodTitle="Pizza with pepperoni and mozarella and some loooooo nnnnggggg title"
             foodDescription="Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, qui consequuntur nam aspernatur ullam illo cupiditate aliquid rerum ipsa dolorum perferendis! Dolorum odio vero possimus nemo nam quaerat officia aspernatur?"
             cookingDuration="4 Minutes"
@@ -34,7 +34,7 @@ const Foods = () => {
             foodID="1234567890"
           />
           <FoodMenu
-            imageURL="http://localhost:3000/homer-simpson.png"
+            imageURL="/homer-simpson.png"
             foodTitle="Pizza with pepperoni and mozarella and so"
             foodDescription="Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, qui consequuntur nam aspernat"
             cookingDuration="4 Minutes"
@@ -42,7 +42,7 @@ const Foods = () => {
             foodID="1234567890"
           />
           <FoodMenu
-            imageURL="http://localhost:3000/homer-simpson.png"
+            imageURL="/homer-simpson.png"
             foodTitle="Pizza with pepperoni and mozarella and some loooooo nnnnggggg title moree longgg"
             foodDescription="Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, qui conseqsimus nemo nam quaerat officia aspernatur?"
             cookingDuration="4 Minutes"

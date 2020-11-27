@@ -1,3 +1,4 @@
+import { SignalCellularNullOutlined } from "@material-ui/icons";
 import React, { useState } from "react";
 import Breadcrumb from "../partials/Breadcrumb";
 import "./index.css";
@@ -10,7 +11,11 @@ const BMICalculator = () => {
 
   const calculateBMI = (e) => {
     e.preventDefault();
-    setBMI((weight / ((height / 100) ^ 2)).toFixed(2));
+    setBMI((weight / ((height / 100) * (height / 100))).toFixed(3));
+
+    if (isNaN(BMI)) {
+      setWeightStatus(null);
+    }
 
     if (BMI < 18.5) {
       setWeightStatus("Underweight");

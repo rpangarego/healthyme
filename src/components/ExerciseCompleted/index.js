@@ -10,10 +10,7 @@ const ExerciseCompleted = () => {
       <div className="exercise-completed">
         <h1 className>Exercise Completed! 🎉</h1>
 
-        <img
-          src="http://localhost:3000/exercise-completed.webp"
-          alt="Exercise completed!"
-        />
+        <img src="/exercise-completed.webp" alt="Exercise completed!" />
 
         <div className="nav-buttons">
           <Link className="exercise-button" to="/exercises">

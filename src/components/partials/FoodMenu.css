@@ -46,6 +46,10 @@
   display: inline-block;
 }
 
+.food-preparation .MuiSvgIcon-root {
+  margin-right: 5px;
+}
+
 .food-description {
   display: -webkit-box;
   text-align: justify;

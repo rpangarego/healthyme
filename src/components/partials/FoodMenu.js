@@ -23,12 +23,12 @@ const FoodMenu = ({
         </Link>
         <div className="food-preparation">
           <div className="food-duration">
-            <AccessTimeIcon />
-            <h4>{cookingDuration}</h4>
+            <AccessTimeIcon fontSize="small" />
+            <p>{cookingDuration}</p>
           </div>
           <div className="food-portion">
-            <RestaurantIcon />
-            <h4>{foodPortion} Portions</h4>
+            <RestaurantIcon fontSize="small" />
+            <p>{foodPortion} Portions</p>
           </div>
         </div>
         <p className="food-description">{foodDescription}</p>
