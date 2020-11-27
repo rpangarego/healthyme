@@ -1,4 +1,3 @@
-import { SignalCellularNullOutlined } from "@material-ui/icons";
 import React, { useState } from "react";
 import Breadcrumb from "../partials/Breadcrumb";
 import "./index.css";

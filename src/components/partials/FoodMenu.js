@@ -14,11 +14,11 @@ const FoodMenu = ({
 }) => {
   return (
     <div className="food-menu">
-      <Link to="foods/12798384267463/recipe">
+      <Link to={`foods/${foodID}/recipe`}>
         <img src={imageURL} alt={foodTitle} className="food-image" />
       </Link>
       <div className="food-info">
-        <Link to="foods/12798384267463/recipe">
+        <Link to={`foods/${foodID}/recipe`}>
           <h1 className="food-title">{foodTitle}</h1>
         </Link>
         <div className="food-preparation">

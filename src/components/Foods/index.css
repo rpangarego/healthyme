@@ -9,6 +9,32 @@
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
 }
 
+.foods > .loading-foods {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 5rem;
+}
+
+.foods > .show-more-foods {
+  display: block;
+  padding: 8px 30px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  font-size: 0.925rem;
+  background-color: var(--clr-white);
+  border: 1px solid var(--clr-gray);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  outline: none;
+  cursor: pointer;
+  transition: padding 200ms ease-in-out;
+}
+
+.foods > .show-more-foods:hover {
+  padding: 8px 20px;
+}
+
 .foods > h1 {
   font-size: 2.3rem;
   text-align: center;
