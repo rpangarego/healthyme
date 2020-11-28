@@ -16,11 +16,16 @@ const ExerciseStart = ({ location }) => {
 
   // setup initial state
   // const [exercises, setExercises] = useState([]);
+
+  const breakTimeDuration = 2; //in seconds
+  const exerciseDuration = 5; //in seconds
+
   let isExercise = false;
   let isBreak = false;
+  const [exerciseStatus, setExerciseStatus] = useState(false);
   const [played, setPlayed] = useState([]);
-  const [playExercise, setPlayExercise] = useState(0);
-  const [nextExercise, setNextExercise] = useState(1);
+  let [playExercise, setPlayExercise] = useState(0);
+  let [nextExercise, setNextExercise] = useState(1);
 
   let [limitInterval, setLimitInterval] = useState(5); //refer to time interval
   let timeInterval = limitInterval;
@@ -30,6 +35,26 @@ const ExerciseStart = ({ location }) => {
   // let progress = exerciseProgress;
 
   let int = null;
+
+  const setExerciseValue = (
+    exerciseBoolean,
+    breakBoolean,
+
+    limitInt,
+    status
+  ) => {
+    clearInterval(int);
+
+    isExercise = exerciseBoolean;
+    isBreak = breakBoolean;
+    currentTimeInterval = 0;
+    timeInterval = limitInt;
+    setCurrentInterval(0);
+    setLimitInterval(limitInt);
+    setExerciseStatus(status);
+
+    checkExerciseStatus();
+  };
 
   const checkExerciseStatus = () => {
     // if its not exercise and not break-time either
@@ -44,52 +69,50 @@ const ExerciseStart = ({ location }) => {
           if (currentTimeInterval <= timeInterval + 1) {
             setCurrentInterval(current);
           } else {
-            clearInterval(int);
-
-            isExercise = true;
-            isBreak = false;
-            currentTimeInterval = 0;
-            setCurrentInterval(0);
-            timeInterval = 10;
-            setLimitInterval(10);
-
-            console.log(
-              "start exercise!! (exercise | break)",
-              isExercise,
-              isBreak
-            );
-
-            checkExerciseStatus();
+            setExerciseValue(true, false, exerciseDuration, true);
           }
         }, 1000);
       } else {
         // exercise completed
         console.log("exercise completed!");
+        history.push(`/exercises/${exercisePlaylist}/completed`);
       }
 
       // if its exercise
     } else if (isExercise && !isBreak) {
-      // exercise time!
-      console.log(
-        "exercise starting...! (exercise | break)",
-        isExercise,
-        isBreak
-      );
+      // if the nextExercise index is the same value as exercises.length then EXERCISE COMPLETED!!
+      if (exercisePlaylist.exercises.length === nextExercise - 1) {
+        setExerciseValue(false, false, breakTimeDuration, false);
+      }
 
+      // exercise time!
       int = setInterval(() => {
         const current = currentTimeInterval++;
         if (current <= timeInterval) {
           setCurrentInterval(current);
-          console.log(current, timeInterval);
+        } else {
+          setExerciseValue(false, true, breakTimeDuration, false);
+
+          let playIndex = playExercise++;
+          setPlayExercise(playIndex);
+          let nextIndex = nextExercise++;
+          setNextExercise(nextIndex);
         }
       }, 1000);
 
       // if its break-time
     } else if (!isExercise && isBreak) {
-      // break-time!
-      console.log("its break-time!");
+      int = setInterval(() => {
+        const current = currentTimeInterval++;
+        if (current <= timeInterval) {
+          setCurrentInterval(current);
+        } else {
+          setExerciseValue(true, false, exerciseDuration, true);
+        }
+      }, 1000);
     }
   };
+
   useEffect(() => {
     if (location.pathname.split("/")[3] === "start") {
       checkExerciseStatus();
@@ -116,9 +139,15 @@ const ExerciseStart = ({ location }) => {
               <h1 className="title">{exercisePlaylist.title}</h1>
 
               <h2 className="exercise-subtitle">
-                {exercisePlaylist.exercises[playExercise].name}
+                {!exerciseStatus
+                  ? "- Get Ready -"
+                  : exercisePlaylist.exercises[playExercise].name}
               </h2>
-              <p>Next: {exercisePlaylist.exercises[nextExercise].name}</p>
+              <p>
+                {exercisePlaylist.exercises[nextExercise].name === undefined
+                  ? ""
+                  : `Next: ${exercisePlaylist.exercises[nextExercise].name}`}
+              </p>
               <h3 className="exercise-timer">
                 00:
                 {currentInterval > 9 ? currentInterval : `0${currentInterval}`}
