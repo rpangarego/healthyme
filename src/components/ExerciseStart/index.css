@@ -29,6 +29,10 @@
   margin-bottom: 5px;
 }
 
+.exercise-playing-info h2.exercise-subtitle.muted {
+  color: var(--clr-gray);
+}
+
 .exercise-playing-info p {
   font-size: 1.4rem;
   text-align: center;
