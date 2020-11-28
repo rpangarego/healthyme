@@ -1,3 +1,10 @@
+//==========================================================//
+// This app is designed and developed by Ronaldo Pangarego  //
+// email: ronaldo.pangarego@gmail.com                       //
+// github: github.com/rpangarego                            //
+// checkout my portofolio --> rpangarego.netlify.app        //
+//==========================================================//
+
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";

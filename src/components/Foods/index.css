@@ -9,7 +9,7 @@
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.3);
 }
 
-.foods > .loading-foods {
+.loading-foods {
   display: block;
   text-align: center;
   margin: 5rem auto;

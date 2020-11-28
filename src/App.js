@@ -1,3 +1,10 @@
+//==========================================================//
+// This app is designed and developed by Ronaldo Pangarego  //
+// email: ronaldo.pangarego@gmail.com                       //
+// github: github.com/rpangarego                            //
+// checkout my portofolio --> rpangarego.netlify.app        //
+//==========================================================//
+
 import React, { useEffect } from "react";
 import "./App.css";
 import Header from "./components/partials/Header";
@@ -17,15 +24,23 @@ import Axios from "axios";
 
 function App() {
   // eslint-disable-next-line no-unused-vars
-  const [{ foods }, dispatch] = useDataLayerValue();
+  const [{ exercises }, dispatch] = useDataLayerValue();
 
   useEffect(() => {
     Axios.get("https://healthyme-backend.herokuapp.com/api/v1/foods").then(
       (response) => {
-        // setFoodsData([response.data.foods]);
         dispatch({
           type: "SET_FOODS",
           foods: [response.data.foods],
+        });
+      }
+    );
+
+    Axios.get("https://healthyme-backend.herokuapp.com/api/v1/exercises").then(
+      (results) => {
+        dispatch({
+          type: "SET_EXERCISES",
+          exercises: [...results.data],
         });
       }
     );

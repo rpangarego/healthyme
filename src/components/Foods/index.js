@@ -1,4 +1,11 @@
-import React, { useState } from "react";
+//==========================================================//
+// This app is designed and developed by Ronaldo Pangarego  //
+// email: ronaldo.pangarego@gmail.com                       //
+// github: github.com/rpangarego                            //
+// checkout my portofolio --> rpangarego.netlify.app        //
+//==========================================================//
+
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import Breadcrumb from "../partials/Breadcrumb";
 // import SearchIcon from "@material-ui/icons/Search";
@@ -11,6 +18,14 @@ const Foods = () => {
   // const [searchInput, setSearchInput] = useState("");
   // eslint-disable-next-line no-unused-vars
   const [isLoading, setIsLoading] = useState(true);
+  const [loadStatus, setLoadStatus] = useState("");
+
+  useEffect(() => {
+    setTimeout(() => {
+      // setIsLoading(false);
+      setLoadStatus("Idk why it takes so long to get the data 🤔");
+    }, 4000);
+  }, []);
 
   // const handleSearch = (e) => {
   //   e.preventDefault();
@@ -43,6 +58,9 @@ const Foods = () => {
           isLoading && foods.length < 1 ? (
             <div className="loading-foods">
               <CircularProgress />
+              <h4 style={{ textAlign: "center", marginTop: "1rem" }}>
+                {loadStatus}
+              </h4>
             </div>
           ) : (
             <div className="content-wrapper">

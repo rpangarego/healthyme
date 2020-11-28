@@ -10,23 +10,26 @@ const BMICalculator = () => {
 
   const calculateBMI = (e) => {
     e.preventDefault();
-    setBMI((weight / ((height / 100) * (height / 100))).toFixed(3));
 
-    if (isNaN(BMI)) {
+    const bmiResult = (weight / ((height / 100) * (height / 100))).toFixed(3);
+
+    setBMI(bmiResult);
+
+    if (isNaN(bmiResult)) {
       setWeightStatus(null);
     }
 
-    if (BMI < 18.5) {
+    if (bmiResult < 18.5) {
       setWeightStatus("Underweight");
-    } else if (BMI >= 18.5 && BMI <= 24.9) {
+    } else if (bmiResult >= 18.5 && bmiResult <= 24.9) {
       setWeightStatus("Normal weight");
-    } else if (BMI >= 25 && BMI <= 29.9) {
+    } else if (bmiResult >= 25 && bmiResult <= 29.9) {
       setWeightStatus("Overweight");
-    } else if (BMI >= 30 && BMI <= 34.9) {
+    } else if (bmiResult >= 30 && bmiResult <= 34.9) {
       setWeightStatus("Obesity Class I");
-    } else if (BMI >= 35 && BMI <= 39.9) {
+    } else if (bmiResult >= 35 && bmiResult <= 39.9) {
       setWeightStatus("Obesity Class II");
-    } else if (BMI >= 40) {
+    } else if (bmiResult >= 40) {
       setWeightStatus("Obesity Class III");
     }
   };
@@ -37,7 +40,7 @@ const BMICalculator = () => {
       <div className="bmi-calculator">
         <h1>BMI Calculator</h1>
 
-        <form>
+        <form onSubmit={calculateBMI}>
           <div className="calculator-input">
             <input
               type="text"
@@ -60,11 +63,7 @@ const BMICalculator = () => {
               onChange={(e) => setWeight(e.target.value)}
             />
 
-            <button
-              type="submit"
-              className="exercise-button"
-              onClick={calculateBMI}
-            >
+            <button type="submit" className="exercise-button">
               Calculate
             </button>
           </div>
