@@ -1,4 +1,10 @@
-/* eslint-disable no-unused-vars */
+//==========================================================//
+// This app is designed and developed by Ronaldo Pangarego  //
+// email: ronaldo.pangarego@gmail.com                       //
+// github: github.com/rpangarego                            //
+// checkout my portofolio --> rpangarego.netlify.app        //
+//==========================================================//
+
 import React, { useEffect, useState } from "react";
 import "./index.css";
 import { useHistory } from "react-router-dom";
@@ -17,22 +23,19 @@ const ExerciseStart = ({ location }) => {
   // setup initial state
   const breakTimeDuration = 10; //in seconds
   const exerciseDuration = 20; //in seconds
-
   let isExercise = false;
   let isBreak = false;
   let isCompleted = false;
   let played = [];
+  let int = null;
 
   const [exerciseStatus, setExerciseStatus] = useState(false);
   let [playExercise, setPlayExercise] = useState(0);
   let [nextExercise, setNextExercise] = useState(1);
-
   let [limitInterval, setLimitInterval] = useState(5); //refer to time interval
   let timeInterval = limitInterval;
   let [currentInterval, setCurrentInterval] = useState(0); //refer to current time interval
   let currentTimeInterval = currentInterval;
-
-  let int = null;
 
   const setExerciseValue = (
     exerciseBoolean,
@@ -52,9 +55,7 @@ const ExerciseStart = ({ location }) => {
     if (isCompleted) {
       clearInterval(int);
       int = null;
-      console.log(
-        `redirect to --> "/exercises/${exercisePlaylist._id}/completed"`
-      );
+      // console.log(`redirect to --> "/exercises/${exercisePlaylist._id}/completed"`);
       history.push(`/exercises/${exercisePlaylist._id}/completed`);
     } else {
       checkExerciseStatus();
@@ -71,7 +72,7 @@ const ExerciseStart = ({ location }) => {
           if (currentTimeInterval <= timeInterval + 1) {
             setCurrentInterval(current);
           } else {
-            setExerciseValue(true, false, breakTimeDuration, true);
+            setExerciseValue(true, false, exerciseDuration, true);
             played.push(playExercise);
 
             let playIndex = playExercise++;
@@ -84,15 +85,13 @@ const ExerciseStart = ({ location }) => {
         // EXERCISE
       } else if (isExercise && !isBreak) {
         // CONTINUE EXERCISE!
-
         int = setInterval(() => {
           const current = currentTimeInterval++;
           if (current <= timeInterval) {
             setCurrentInterval(current);
           } else {
             played.push(playExercise);
-
-            console.log(`Just Played: ${playExercise}`);
+            // console.log(`Just Played: ${playExercise}`);
 
             if (nextExercise > exercisePlaylist.exercises.length) {
               isCompleted = true;
@@ -114,7 +113,7 @@ const ExerciseStart = ({ location }) => {
           if (current <= timeInterval) {
             setCurrentInterval(current);
           } else {
-            console.log(`Break-time! 🍺`);
+            // console.log(`Break-time! 🍺`);
             setExerciseValue(true, false, exerciseDuration, true);
           }
         }, 1000);
@@ -124,7 +123,7 @@ const ExerciseStart = ({ location }) => {
 
   useEffect(() => {
     if (location.pathname.split("/")[3] === "start") {
-      setExerciseValue(false, false, exerciseDuration, false);
+      setExerciseValue(false, false, 5, false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
