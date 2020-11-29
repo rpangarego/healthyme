@@ -1,6 +1,6 @@
 # HealthyMe
 
-Demo link: https://healthyme-88599.web.app/
+Demo link: <a href="https://healthyme-88599.web.app" target="_blank">https://healthyme-88599.web.app</a>
 
 The idea of this app is to help you start your healthy lifestyle from doing some exercises and suggest you an ideas of healthy foods with recipe included. Also this app provide Body Mass Index (BMI) Calculator feature. 
 
