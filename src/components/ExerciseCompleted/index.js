@@ -18,7 +18,7 @@ const ExerciseCompleted = ({ location }) => {
   useEffect(() => {
     if (
       !exercisePlaylist ||
-      exercisePlaylist._id !== location.pathname.split(" ")[2]
+      exercisePlaylist._id !== location.pathname.split("/")[2]
     )
       history.push("/exercises");
 

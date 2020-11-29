@@ -15,18 +15,17 @@ const ExerciseStart = ({ location }) => {
   exerciseURI = `/${exerciseURI[1]}/${exerciseURI[2]}`;
 
   // setup initial state
-  const breakTimeDuration = 1; //in seconds
-  const exerciseDuration = 3; //in seconds
+  const breakTimeDuration = 10; //in seconds
+  const exerciseDuration = 20; //in seconds
 
   let isExercise = false;
   let isBreak = false;
-  let played = [];
   let isCompleted = false;
+  let played = [];
 
   const [exerciseStatus, setExerciseStatus] = useState(false);
   let [playExercise, setPlayExercise] = useState(0);
   let [nextExercise, setNextExercise] = useState(1);
-  const [isPause, setIsPause] = useState(false);
 
   let [limitInterval, setLimitInterval] = useState(5); //refer to time interval
   let timeInterval = limitInterval;
@@ -50,23 +49,29 @@ const ExerciseStart = ({ location }) => {
     setLimitInterval(limitInt);
     setExerciseStatus(status);
 
-    if (!isCompleted) {
+    if (isCompleted) {
+      clearInterval(int);
+      int = null;
+      console.log(
+        `redirect to --> "/exercises/${exercisePlaylist._id}/completed"`
+      );
+      history.push(`/exercises/${exercisePlaylist._id}/completed`);
+    } else {
       checkExerciseStatus();
     }
   };
 
   const checkExerciseStatus = () => {
-    // if its not exercise and not break-time either
-
-    if (!isExercise && !isBreak && exercisePlaylist !== null) {
-      if (!played.length) {
+    if (exercisePlaylist !== null) {
+      // if its not exercise and not break-time either
+      if (!isExercise && !isBreak) {
         // START EXERCISE
         int = setInterval(() => {
           const current = currentTimeInterval++;
           if (currentTimeInterval <= timeInterval + 1) {
             setCurrentInterval(current);
           } else {
-            setExerciseValue(true, false, exerciseDuration, true);
+            setExerciseValue(true, false, breakTimeDuration, true);
             played.push(playExercise);
 
             let playIndex = playExercise++;
@@ -75,49 +80,45 @@ const ExerciseStart = ({ location }) => {
             setNextExercise(nextIndex);
           }
         }, 1000);
-      } else if (played.length & isCompleted) {
-        // exercise completed
-        console.log("exercise completed!");
 
-        setExerciseValue(false, false, 0, false);
-        history.push(`/exercises/${exercisePlaylist._id}/completed`);
-      }
+        // EXERCISE
+      } else if (isExercise && !isBreak) {
+        // CONTINUE EXERCISE!
 
-      // EXERCISE
-    } else if (isExercise && !isBreak && exercisePlaylist !== null) {
-      // CONTINUE EXERCISE!
-      if (exercisePlaylist.exercises[nextExercise] !== undefined) {
         int = setInterval(() => {
           const current = currentTimeInterval++;
           if (current <= timeInterval) {
             setCurrentInterval(current);
           } else {
-            setExerciseValue(false, true, breakTimeDuration, false);
             played.push(playExercise);
 
-            let playIndex = playExercise++;
-            setPlayExercise(playIndex);
-            let nextIndex = nextExercise++;
-            setNextExercise(nextIndex);
+            console.log(`Just Played: ${playExercise}`);
+
+            if (nextExercise > exercisePlaylist.exercises.length) {
+              isCompleted = true;
+              setExerciseValue(false, false, breakTimeDuration, false);
+            } else {
+              let playIndex = playExercise++;
+              setPlayExercise(playIndex);
+              let nextIndex = nextExercise++;
+              setNextExercise(nextIndex);
+              setExerciseValue(false, true, breakTimeDuration, false);
+            }
           }
         }, 1000);
-      } else {
-        // EXERCISE IS DONE
-        console.log("almost finish!");
-        setExerciseValue(true, false, exerciseDuration, false);
-        isCompleted = true;
-      }
 
-      // ITS BREAK_TIME
-    } else if (!isExercise && isBreak && exercisePlaylist !== null) {
-      int = setInterval(() => {
-        const current = currentTimeInterval++;
-        if (current <= timeInterval) {
-          setCurrentInterval(current);
-        } else {
-          setExerciseValue(true, false, exerciseDuration, true);
-        }
-      }, 1000);
+        // ITS BREAK-TIME
+      } else if (!isExercise && isBreak) {
+        int = setInterval(() => {
+          const current = currentTimeInterval++;
+          if (current <= timeInterval) {
+            setCurrentInterval(current);
+          } else {
+            console.log(`Break-time! 🍺`);
+            setExerciseValue(true, false, exerciseDuration, true);
+          }
+        }, 1000);
+      }
     }
   };
 
@@ -128,16 +129,11 @@ const ExerciseStart = ({ location }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handlePauseButton = () => {
-    if (!isPause) {
-      clearInterval(int);
-    }
-    let buttonState = !isPause;
-    setIsPause(buttonState);
-  };
-
   const handleCancelButton = () => {
+    clearInterval(int);
+    int = null;
     setExerciseValue(false, false, 0, false);
+
     dispatch({
       type: "SET_EXERCISEPLAYLIST",
       exercisePlaylist: null,
@@ -157,7 +153,7 @@ const ExerciseStart = ({ location }) => {
             <div className="exercise-playing-info">
               <h1 className="title">
                 {exerciseStatus
-                  ? "Exercise: " + exercisePlaylist.title
+                  ? `Exercise: ${exercisePlaylist.title}`
                   : "Get ready! 💪"}
               </h1>
 
@@ -196,8 +192,8 @@ const ExerciseStart = ({ location }) => {
                 ></span>
               </div>
 
-              <button className="exercise-button" onClick={handlePauseButton}>
-                {!isPause ? "PAUSE" : "PLAY"}
+              <button className="exercise-button" onClick={handleCancelButton}>
+                STOP
               </button>
             </div>
           </>
